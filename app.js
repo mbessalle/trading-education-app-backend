@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const coursesRouter = require('./routes/courses');
+const usersRouter = require('./routes/users');
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', indexRouter);
 app.use('/courses', coursesRouter);
+app.use('/users', usersRouter);
 
 app.get('/', (req, res)=>res.json({message:'Hello'}))
 
