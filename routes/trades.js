@@ -20,7 +20,7 @@ router.get('/', async function(req, res, next) {
 router.get('/:userId', async function(req, res, next) {
   try {
     console.log('here');
-      const trade = await Trade.findByPk(1, {include:[User]});
+      const trade = await Trade.findByPk(req.params.userId, {include:[User]});
     console.log("here", trade);
     if (trade) {
       res.send(trade);

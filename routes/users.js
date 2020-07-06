@@ -20,7 +20,7 @@ router.get("/", async function (req, res, next) {
 router.get("/:userId", async function (req, res, next) {
   try {
     console.log();
-      const user = await User.findByPk(1, {include:['courses']});
+      const user = await User.findByPk(req.params.userId, {include:['courses']});
     console.log("here", user);
     if (user) {
       res.send(user);
