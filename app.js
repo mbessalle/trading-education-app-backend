@@ -6,6 +6,7 @@ const logger = require('morgan');
 
 const coursesRouter = require('./routes/courses');
 const usersRouter = require('./routes/users');
+const tradesRouter = require('./routes/trades');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/', indexRouter);
 app.use('/courses', coursesRouter);
 app.use('/users', usersRouter);
+app.use('/trades', tradesRouter);
 
 app.get('/', (req, res)=>res.json({message:'Hello'}))
 

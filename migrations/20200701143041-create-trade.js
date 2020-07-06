@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      executationtime: {
+      executationTime: {
         type: Sequelize.DATE
       },
       BTCamount: {
