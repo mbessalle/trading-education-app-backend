@@ -20,8 +20,8 @@ module.exports = (sequelize, DataTypes) => {
     username: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    BTCbalance: DataTypes.INTEGER,
-    USDbalance: DataTypes.INTEGER
+    BTCbalance: DataTypes.FLOAT,
+    USDbalance: DataTypes.FLOAT
   }, {
     sequelize,
     modelName: 'user',

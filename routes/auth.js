@@ -45,6 +45,8 @@ router.post("/signup", async (req, res) => {
     const newUser = await User.create({
       email,
       password: bcrypt.hashSync(password, SALT_ROUNDS),
+      BTCbalance: 0,
+      USDbalance: 10000
     });
 
     delete newUser.dataValues["password"]; // don't send back the password hash

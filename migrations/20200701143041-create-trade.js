@@ -8,14 +8,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      executationTime: {
+      executionTime: {
         type: Sequelize.DATE
       },
       BTCamount: {
-        type: Sequelize.INTEGER
+        type: Sequelize.FLOAT
       },
       USDamount: {
-        type: Sequelize.INTEGER
+        type: Sequelize.FLOAT
       },
       createdAt: {
         allowNull: false,

@@ -24,10 +24,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       BTCbalance: {
-        type: Sequelize.INTEGER
+        type: Sequelize.FLOAT
       },
       USDbalance: {
-        type: Sequelize.INTEGER
+        type: Sequelize.FLOAT
       },
       createdAt: {
         allowNull: false,

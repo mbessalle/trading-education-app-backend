@@ -14,9 +14,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   trade.init({
-    executationTime: DataTypes.DATE,
-    BTCamount: DataTypes.INTEGER,
-    USDamount: DataTypes.INTEGER
+    executionTime: DataTypes.DATE,
+    BTCamount: DataTypes.FLOAT,
+    USDamount: DataTypes.FLOAT
   }, {
     sequelize,
     modelName: 'trade',

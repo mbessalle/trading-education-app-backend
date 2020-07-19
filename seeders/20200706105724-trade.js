@@ -7,7 +7,7 @@ module.exports = {
       [
         {
           userId: 1,
-          executationTime: new Date(),
+          executionTime: new Date(),
           BTCamount:0,
           USDamount: 5000,
           createdAt: new Date(),
@@ -15,7 +15,7 @@ module.exports = {
         },
         {
           userId: 2,
-          executationTime: new Date(),
+          executionTime: new Date(),
           BTCamount:1,
           USDamount: 3000,
           createdAt: new Date(),
