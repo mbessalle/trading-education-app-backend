@@ -1,13 +1,17 @@
+require('dotenv').config();
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const corsMiddleWare = require('cors');
-
 const coursesRouter = require('./routes/courses');
 const usersRouter = require('./routes/users');
 const tradesRouter = require('./routes/trades');
+const authRouter = require('./routes/auth');
+const dataRouter = require('./routes/data');
+// const usercourseRouter = require('./routes/userCourses');
+
 
 const app = express();
 
@@ -25,6 +29,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/courses', coursesRouter);
 app.use('/users', usersRouter);
 app.use('/trades', tradesRouter);
+app.use('/auth', authRouter);
+app.use('/data', dataRouter);
+// app.use('/usercourse', usercourseRouter)
 
 app.get('/', (req, res)=>res.json({message:'Hello'}))
 
