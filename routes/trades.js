@@ -5,13 +5,32 @@ const User = require("../models").user;
 const authMiddleware = require("../auth/middleware");
 
 /* GET trades listing. */
-router.get("/", async function (req, res, next) {
+// router.get("/", async function (req, res, next) {
+//   try {
+//     const trade = await Trade.findAll();
+//     if (trade) {
+//       res.send(trade);
+//     } else {
+//       res.status(404).send("trade not found");
+//     }
+//   } catch (e) {
+//     next(e);
+//   }
+// });
+
+router.get("/", authMiddleware, async function (req, res, next) {
   try {
-    const trade = await Trade.findAll();
-    if (trade) {
-      res.send(trade);
+    console.log("here");
+    const trades = await Trade.findAll({
+      where: {
+        userId: req.user.id,
+      },
+    });
+    // console.log("here", trades);
+     if (trades) {
+      res.send(trades);
     } else {
-      res.status(404).send("trade not found");
+      res.status(404).send("trades not found");
     }
   } catch (e) {
     next(e);
@@ -54,36 +73,22 @@ router.post("/", authMiddleware, async function (req, res, next) {
       executionTime: Date.now(),
       BTCamount,
       USDamount,
-      userId: id
+      userId: id,
     });
 
     const user = req.user;
-    user.USDbalance = newUSDbalance
-    user.BTCbalance = newBTCbalance
+    user.USDbalance = newUSDbalance;
+    user.BTCbalance = newBTCbalance;
     await user.save();
 
-    console.log('Trade created')
+    console.log("Trade created");
+    res.send(trade)
     // res.status(404).send("trade not found");
   } catch (e) {
-    res.send(e)
+    res.send(e);
     // next(e);
   }
-  console.log()
-});
-
-router.get("/:userId", async function (req, res, next) {
-  try {
-    console.log("here");
-    const trade = await Trade.findByPk(req.params.userId, { include: [User] });
-    console.log("here", trade);
-    if (trade) {
-      res.send(trade);
-    } else {
-      res.status(404).send("trade not found");
-    }
-  } catch (e) {
-    next(e);
-  }
+  console.log();
 });
 
 module.exports = router;

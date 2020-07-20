@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/', indexRouter);
 app.use('/courses', coursesRouter);
 app.use('/users', usersRouter);
-app.use('/trades', tradesRouter);
+app.use('/tradeData', tradesRouter);
 app.use('/auth', authRouter);
 app.use('/data', dataRouter);
 // app.use('/usercourse', usercourseRouter)
